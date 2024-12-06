@@ -5,7 +5,7 @@ const nextConfig = {
     domains: [
       "lh3.googleusercontent.com",
       "backend.grizzlytattoo.com",
-      "grizzly-tattoo.puresitestudio.com",
+      // "grizzly-tattoo.puresitestudio.com",
     ],
   },
 
@@ -46,12 +46,6 @@ const nextConfig = {
       {
         source: "/derek-yost",
         destination: "/artists/derek-yost",
-        permanent: true,
-      },
-
-      {
-        source: "/portland-tattoo-artists/tyler-adams/",
-        destination: "/artists/tyler-adams",
         permanent: true,
       },
     ];
