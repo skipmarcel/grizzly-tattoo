@@ -48,6 +48,42 @@ const nextConfig = {
         destination: "/artists/derek-yost",
         permanent: true,
       },
+
+      {
+        source: "/portland-tattoo-artists",
+        destination: "/artists",
+        permanent: true,
+      },
+
+      {
+        source: "/grizzly_tattoo_artist_eric_quale.html",
+        destination: "/artists",
+        permanent: true,
+      },
+
+      {
+        source: "/david-stein",
+        destination: "/artists",
+        permanent: true,
+      },
+
+      {
+        source: "/davis-eiermann",
+        destination: "/artists",
+        permanent: true,
+      },
+
+      {
+        source: "/portland-tattoo-artists/tyler-adams",
+        destination: "/artists",
+        permanent: true,
+      },
+
+      {
+        source: "/portland-tattoo-artists",
+        destination: "/artists",
+        permanent: true,
+      },
     ];
   },
 };
