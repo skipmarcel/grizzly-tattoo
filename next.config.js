@@ -50,12 +50,6 @@ const nextConfig = {
       },
 
       {
-        source: "/portland-tattoo-artists",
-        destination: "/artists",
-        permanent: true,
-      },
-
-      {
         source: "/grizzly_tattoo_artist_eric_quale.html",
         destination: "/artists",
         permanent: true,
