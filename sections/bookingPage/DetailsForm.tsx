@@ -1,34 +1,35 @@
-"use client";
-import Input from "@/components/input";
-import Select from "@/components/select";
-import { Button } from "@/components/ui/button";
-import { toast } from "@/components/ui/use-toast";
-import { cn } from "@/utils";
-import { yupResolver } from "@hookform/resolvers/yup";
-import axios from "axios";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
+'use client';
+import Input from '@/components/input';
+import Select from '@/components/select';
+import { Button } from '@/components/ui/button';
+import { toast } from '@/components/ui/use-toast';
+import { cn } from '@/utils';
+import { yupResolver } from '@hookform/resolvers/yup';
+import axios from 'axios';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import booking from '@/constants/booking';
 
 const schema = yup.object().shape({
-  firstName: yup.string().required("First name is required"),
-  lastName: yup.string().required("Last name is required"),
-  phone: yup.string().required("Phone number is required"),
-  email: yup.string().email("Invalid email").required("Email is required"),
-  newClient: yup.string().required("New client status is required"),
-  tattooDescription: yup.string().required("Tattoo description is required"),
-  placement: yup.string().required("Placement is required"),
-  availability: yup.string().required("Availability is required"),
+  firstName: yup.string().required('First name is required'),
+  lastName: yup.string().required('Last name is required'),
+  phone: yup.string().required('Phone number is required'),
+  email: yup.string().email('Invalid email').required('Email is required'),
+  newClient: yup.string().required('New client status is required'),
+  tattooDescription: yup.string().required('Tattoo description is required'),
+  placement: yup.string().required('Placement is required'),
+  availability: yup.string().required('Availability is required'),
   referencePhotos: yup
     .mixed()
     .test(
-      "minFiles",
-      "At least one reference photo is required",
+      'minFiles',
+      'At least one reference photo is required',
       (value: any) => value && value.length > 0
     )
-    .test("fileSize", "File Size is too large", (value: any) => {
+    .test('fileSize', 'File Size is too large', (value: any) => {
       if (value && value.length > 0) {
         for (let i = 0; i < value.length; i++) {
           if (value[i].size > 5242880) {
@@ -38,13 +39,13 @@ const schema = yup.object().shape({
       }
       return true;
     })
-    .test("fileType", "Unsupported File Format", (value: any) => {
+    .test('fileType', 'Unsupported File Format', (value: any) => {
       if (value && value.length > 0) {
         for (let i = 0; i < value.length; i++) {
           if (
-            value[i].type != "image/png" &&
-            value[i].type != "image/jpg" &&
-            value[i].type != "image/jpeg"
+            value[i].type != 'image/png' &&
+            value[i].type != 'image/jpg' &&
+            value[i].type != 'image/jpeg'
           ) {
             return false;
           }
@@ -58,12 +59,12 @@ const schema = yup.object().shape({
 
 const newClients = [
   {
-    value: "yes",
-    label: "Yes",
+    value: 'yes',
+    label: 'Yes',
   },
   {
-    value: "no",
-    label: "Return Client",
+    value: 'no',
+    label: 'Return Client',
   },
 ];
 
@@ -100,24 +101,31 @@ const DetailsForm = ({ artist }: { artist: any }) => {
 
       console.log(data);
 
+      const url = new URL(location.href);
+      const params = new URLSearchParams(url.searchParams);
+
+      const artistSlug = params.get('artist') || 'contact-form';
+
+      const formCode = booking[artistSlug as keyof typeof booking];
+
       const formData = new FormData();
-      formData.append("_wpcf7_unit_tag", "0015ef9");
+      formData.append('_wpcf7_unit_tag', formCode);
       formData.set(
-        "your-subject",
+        'your-subject',
         `Tattoo Request Form: New Request from ${firstName} ${lastName}`
       );
-      formData.set("firstName", `${firstName}`);
-      formData.set("lastName", `${lastName}`);
-      formData.set("your-email", email);
+      formData.set('firstName', `${firstName}`);
+      formData.set('lastName', `${lastName}`);
+      formData.set('your-email', email);
       formData.set(
-        "newClient",
+        'newClient',
         newClients.find((item) => item.value === newClient)?.label!
       );
-      formData.set("phone", phone);
-      formData.set("new-client", newClient);
-      formData.set("tattooDescription", tattooDescription);
-      formData.set("placement", placement);
-      formData.set("availability", availability);
+      formData.set('phone', phone);
+      formData.set('new-client', newClient);
+      formData.set('tattooDescription', tattooDescription);
+      formData.set('placement', placement);
+      formData.set('availability', availability);
 
       if (referencePhotos && referencePhotos.length > 0) {
         for (let i = 0; i <= referencePhotos.length - 1; i++) {
@@ -132,18 +140,18 @@ const DetailsForm = ({ artist }: { artist: any }) => {
 
       if (response.status === 200) {
         toast({
-          title: "Success",
+          title: 'Success',
           description:
-            "Your booking request has been successfully submitted. A member of our team will contact you shortly to confirm your appointment.",
-          className: "bg-green-400 text-white",
+            'Your booking request has been successfully submitted. A member of our team will contact you shortly to confirm your appointment.',
+          className: 'bg-green-400 text-white',
         });
         reset();
       }
     } catch (error) {
       toast({
-        variant: "destructive",
-        title: "Uh oh! Something went wrong.",
-        description: "There was a problem with your request. Please try later.",
+        variant: 'destructive',
+        title: 'Uh oh! Something went wrong.',
+        description: 'There was a problem with your request. Please try later.',
       });
     } finally {
       setIsLoading(false);
@@ -161,14 +169,13 @@ const DetailsForm = ({ artist }: { artist: any }) => {
       <form
         noValidate
         onSubmit={handleSubmit(onSubmit)}
-        className="grid sm:grid-cols-2 gap-6 gap-y-10 w-full mt-10"
-      >
+        className="grid sm:grid-cols-2 gap-6 gap-y-10 w-full mt-10">
         <Input
           id="firstName"
           label="First Name"
           placeholder="First Name"
           error={errors.firstName}
-          {...register("firstName")}
+          {...register('firstName')}
           inputClassName="input text-lg !px-4 !py-2 !text-base !text-black"
           messageClassName="absolute -bottom-6 !text-primary"
           required
@@ -179,7 +186,7 @@ const DetailsForm = ({ artist }: { artist: any }) => {
           label="Last Name"
           placeholder="Last Name"
           error={errors.lastName}
-          {...register("lastName")}
+          {...register('lastName')}
           inputClassName="input text-lg !px-4 !py-2 !text-base !text-black"
           messageClassName="absolute -bottom-6 !text-primary"
           required
@@ -189,7 +196,7 @@ const DetailsForm = ({ artist }: { artist: any }) => {
           id="email"
           label="Email Address"
           placeholder="Your Email Address"
-          {...register("email")}
+          {...register('email')}
           error={errors.email}
           inputClassName="input text-lg !px-4 !py-2 !text-base !text-black"
           messageClassName="absolute -bottom-6 !text-primary"
@@ -200,7 +207,7 @@ const DetailsForm = ({ artist }: { artist: any }) => {
           id="phone"
           label="Phone Number"
           placeholder="Your Phone Number"
-          {...register("phone")}
+          {...register('phone')}
           error={errors.phone}
           inputClassName="input text-lg !px-4 !py-2 !text-base !text-black"
           messageClassName="absolute -bottom-6 !text-primary"
@@ -210,20 +217,20 @@ const DetailsForm = ({ artist }: { artist: any }) => {
         <Select
           options={[
             {
-              value: "",
-              label: "Please select one option*",
+              value: '',
+              label: 'Please select one option*',
             },
             ...newClients,
           ]}
-          {...register("newClient")}
+          {...register('newClient')}
           error={errors.newClient}
           id="newClient"
           // placeholder="Please select"
           className="sm:col-span-2"
           label="New Client?"
           inputClassName={cn(
-            "input text-lg !px-4 !py-3 !text-base !text-black",
-            !watch("newClient") && "!text-gray-400/90"
+            'input text-lg !px-4 !py-3 !text-base !text-black',
+            !watch('newClient') && '!text-gray-400/90'
           )}
           messageClassName="absolute -bottom-6 !text-primary"
           required
@@ -233,7 +240,7 @@ const DetailsForm = ({ artist }: { artist: any }) => {
           id="tattooDescription"
           placeholder="Tattoo Description"
           label="Tattoo Description"
-          {...register("tattooDescription")}
+          {...register('tattooDescription')}
           error={errors.tattooDescription}
           phoneInput
           textarea
@@ -249,7 +256,7 @@ const DetailsForm = ({ artist }: { artist: any }) => {
           label="Placement on the Body"
           placeholder="Placement on the Body"
           error={errors.placement}
-          {...register("placement")}
+          {...register('placement')}
           className="sm:col-span-2"
           inputClassName="input text-lg !px-4 !py-2 !text-base !text-black"
           messageClassName="absolute -bottom-6 !text-primary"
@@ -258,7 +265,7 @@ const DetailsForm = ({ artist }: { artist: any }) => {
 
         <Input
           type="file"
-          {...register("referencePhotos")}
+          {...register('referencePhotos')}
           multiple
           label="Reference Photos"
           inputClassName="input text-lg !px-4 !py-2 !text-base !text-black"
@@ -271,7 +278,7 @@ const DetailsForm = ({ artist }: { artist: any }) => {
           id="availability"
           placeholder="Days you are usually free"
           label="Days you are usually free"
-          {...register("availability")}
+          {...register('availability')}
           error={errors.availability}
           phoneInput
           textarea
@@ -293,8 +300,7 @@ const DetailsForm = ({ artist }: { artist: any }) => {
             type="submit"
             id="btn-submit-request"
             className="bg-white py-4 px-6 hover:opacity-80"
-            arrow={false}
-          >
+            arrow={false}>
             Submit Request
           </Button>
         </div>
