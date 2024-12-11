@@ -8,10 +8,10 @@ export const formCode = {
 }
 
 export const formLink = {
-    "tyler-adams": "https://backend.grizzlytattoo.com/wp-json/contact-form-7/v1/contact-forms/155/feedback",
-    "brian-visser": "https://backend.grizzlytattoo.com/wp-json/contact-form-7/v1/contact-forms/157/feedback",
-    "blane-curtice": "https://backend.grizzlytattoo.com/wp-json/contact-form-7/v1/contact-forms/159/feedback",
-    "leo-salazar": "https://backend.grizzlytattoo.com/wp-json/contact-form-7/v1/contact-forms/158/feedback",
-    "derek-yost": "https://backend.grizzlytattoo.com/wp-json/contact-form-7/v1/contact-forms/160/feedback",
-    "contact-form": "https://backend.grizzlytattoo.com/wp-json/contact-form-7/v1/contact-forms/5/feedback"
+    "tyler-adams": process.env.NEXT_PUBLIC_BOOKING_FORM_URL_TYLER_ADAMS!,
+    "brian-visser": process.env.NEXT_PUBLIC_BOOKING_FORM_URL_BRIAN_VISSER!,
+    "blane-curtice": process.env.NEXT_PUBLIC_BOOKING_FORM_URL_BLANE_CURTICE!,
+    "leo-salazar": process.env.NEXT_PUBLIC_BOOKING_FORM_URL_LEO_SALAZAR!,
+    "derek-yost": process.env.NEXT_PUBLIC_BOOKING_FORM_URL_DEREK_YOST!,
+    "contact-form": process.env.NEXT_PUBLIC_CONTACT_FORM_URL!
 }
