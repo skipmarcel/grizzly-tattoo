@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import booking from '@/constants/booking';
+import { formLink, formCode } from '@/constants/booking';
 
 const schema = yup.object().shape({
   firstName: yup.string().required('First name is required'),
@@ -106,10 +106,11 @@ const DetailsForm = ({ artist }: { artist: any }) => {
 
       const artistSlug = params.get('artist') || 'contact-form';
 
-      const formCode = booking[artistSlug as keyof typeof booking];
+      const code = formCode[artistSlug as keyof typeof formCode];
+      const link = formLink[artistSlug as keyof typeof formLink];
 
       const formData = new FormData();
-      formData.append('_wpcf7_unit_tag', formCode);
+      formData.append('_wpcf7_unit_tag', code);
       formData.set(
         'your-subject',
         `Tattoo Request Form: New Request from ${firstName} ${lastName}`
@@ -133,10 +134,7 @@ const DetailsForm = ({ artist }: { artist: any }) => {
         }
       }
 
-      const response = await axios.post(
-        process.env.NEXT_PUBLIC_BOOKING_FORM_URL!,
-        formData
-      );
+      const response = await axios.post(link, formData);
 
       if (response.status === 200) {
         toast({
