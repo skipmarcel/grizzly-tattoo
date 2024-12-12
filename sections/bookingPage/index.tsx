@@ -13,7 +13,7 @@ const BookingPage: any = async ({
   const { artists } = await getArtists({ first: 20 });
   return (
     <>
-      <PageHead title="Booking" imgSrc="/images/pagehead/image-3.jpeg" />
+      <PageHead title="Booking" imgSrc="/images/pagehead/goldfish.jpg" />
       <BookingForm {...{ artists, artistSlug, artist }} />
       <FAQSection />
     </>

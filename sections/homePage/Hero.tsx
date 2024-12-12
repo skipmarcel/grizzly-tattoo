@@ -15,15 +15,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const sliders = [
   {
-    title: "Portland's Elite Tattoo Art Styles",
+    title: "GRIZZLY",
     imgSrc: "/images/hero/image-1.jpg",
   },
   {
-    title: "Tattoos Made To Last Forever",
+    title: "Tattoos Made To Last",
     imgSrc: "/images/about/image-3.jpg",
   },
   {
-    title: "Custom Art You Will Love",
+    title: "Your Idea or Ours",
     imgSrc: "/images/about/image-17.jpg",
   },
 ];
