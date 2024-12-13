@@ -9,10 +9,8 @@ const ChooseArtist = ({ artists }: { artists: any }) => {
 
   return (
     <div>
-      <h3 className="text-3xl mb-2">Choose Artist</h3>
-      <p className="text-gray-200">
-        Browse our talented artists and choose the one that fits your style.
-      </p>
+      <h4 className="text-3xl mb-2">Who would you like to book with?</h4>
+      <p className="text-gray-200"></p>
 
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-10 w-full mt-10">
         {artists.map((item: any) => (

@@ -67,9 +67,8 @@ const Sidebar = ({ isScrolled }: { isScrolled?: boolean }) => {
           </SheetTitle>
 
           <SheetDescription className="text-left max-w-xs inline-flex !mt-8 text-base mx-0 text-gray-300">
-            Grizzly Tattoo, located in Portland, OR, offers custom tattoos with
-            expert artistry in a welcoming atmosphere. Walk-ins are always
-            welcome.
+            Grizzly Tattoo, located in Portland, OR, offers custom tattoos, ready made flash designes and a 
+            welcoming atmosphere. Walk-ins are always welcome.
           </SheetDescription>
         </SheetHeader>
         <CustomSheetClose />
