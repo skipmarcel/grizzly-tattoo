@@ -341,7 +341,22 @@ const Hero = () => {
                         >
                           <Link href="/gallery">
                             <Button className="min-w-[10rem]" variant="neutral">
-                              Explore More
+                              Gallery
+                            </Button>
+                          </Link>
+                        </motion.div>
+                        <motion.div
+                          className="mt-8 flex flex-wrap items-center gap-y-6 gap-x-2 sm:gap-x-4"
+                          initial="initial"
+                          whileInView="animate"
+                          viewport={{ once: false, margin: "0px" }}
+                          exit="exit"
+                          variants={motionVariants.fadeDown(40)}
+                          transition={{ duration: 1, delay: 0.3 }}
+                        >
+                          <Link href="/booking">
+                            <Button className="min-w-[10rem]" variant="neutral">
+                              Booking
                             </Button>
                           </Link>
                         </motion.div>

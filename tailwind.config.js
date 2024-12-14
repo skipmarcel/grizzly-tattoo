@@ -35,7 +35,7 @@ module.exports = {
 
       fontFamily: {
         anton: ["var(--font-anton)", "ui-sans-serif"],
-        barlow: ["var(--font-barlow)", "ui-sans-serif"],
+        saira: ["var(--font-saira-condensed)", "ui-sans-serif"],
         crimsonText: ["var(--font-crimsonText)", "ui-sans-serif"],
         birthstone: ["var(--font-birthstone)", "ui-sans-serif"],
       },

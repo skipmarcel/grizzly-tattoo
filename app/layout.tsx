@@ -5,13 +5,20 @@ import { Toaster } from "@/components/ui/toaster";
 import { MetaData } from "@/constants";
 import { cn } from "@/utils";
 import { Metadata } from "next";
-import { Anton, Barlow, Birthstone, Crimson_Text } from "next/font/google";
+import { Anton, Saira_Condensed, Birthstone, Crimson_Text } from "next/font/google";
 import type { PropsWithChildren } from "react";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./globals.css";
+
+const sairaCondensed = Saira_Condensed({
+  weight: ["400", "600", "800"],
+  subsets: ["latin"],
+  variable: "--font-saira-condensed",
+  display: "swap",
+});
 
 const anton = Anton({
   weight: ["400"],
@@ -20,12 +27,12 @@ const anton = Anton({
   display: "swap",
 });
 
-const barlow = Barlow({
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-  variable: "--font-barlow",
-  display: "swap",
-});
+// const barlow = Barlow({
+//   weight: ["300", "400", "500", "600", "700", "800", "900"],
+//   subsets: ["latin"],
+//   variable: "--font-barlow",
+//   display: "swap",
+// });
 
 const crimsonText = Crimson_Text({
   weight: ["400", "600", "700"],
@@ -50,7 +57,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         className={cn(
           "flex flex-col min-h-screen",
           anton.variable,
-          barlow.variable,
+          sairaCondensed.variable,
           crimsonText.variable,
           birthstone.variable
         )}
