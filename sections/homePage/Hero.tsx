@@ -15,7 +15,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const sliders = [
   {
-    title: "GRIZZLY",
+    title: "GRIZZLY TATTOO",
     imgSrc: "/images/hero/image-1.jpg",
   },
   {
@@ -136,9 +136,9 @@ const Hero = () => {
                     <div className="z-50 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full flex flex-col justify-center flex-1 container">
                       <div className="max-w-3xl flex flex-col lg:mt-0 py-20 items-center text-center mx-auto relative z-50">
                         {index === 0 && (
-                          <h1 className="text-white text-center relative font-extrabold flex flex-col items-center text-3xl xs:text-4xl md:text-[72px] leading-[95%] lg:leading-[90%]">
+                          <h1 className="text-white text-center relative font-extrabold flex flex-col items-center text-6xl xs:text-4xl md:text-[72px] leading-[95%] lg:leading-[90%]">
                             <motion.span
-                              className="uppercase -left-10 relative"
+                              className="uppercase relative text-8xl sm:text-6xl md:text-[80px]"
                               initial="initial"
                               whileInView="animate"
                               viewport={{ once: false, margin: "0px" }}
@@ -147,10 +147,10 @@ const Hero = () => {
                               variants={motionVariants.fadeLeft(40)}
                               transition={{ duration: 0.5, delay: 0.1 }}
                             >
-                              {item.title.split(" ")[0]}
+                              GRIZZLY
                             </motion.span>
-                            <motion.span
-                              className="uppercase -left-16 relative"
+                            {/* <motion.span
+                              className="uppercase relative text-6xl sm:text-6xl md:text-[80px]"
                               initial="initial"
                               whileInView="animate"
                               viewport={{ once: false, margin: "0px" }}
@@ -159,44 +159,8 @@ const Hero = () => {
                               variants={motionVariants.fadeLeft(40)}
                               transition={{ duration: 0.5, delay: 0.15 }}
                             >
-                              {item.title.split(" ")[1]}
-                            </motion.span>
-                            <motion.span
-                              className="font-birthstone text-[64px] my-1 sm:text-[100px]"
-                              initial="initial"
-                              whileInView="animate"
-                              viewport={{ once: false, margin: "0px" }}
-                              key={index}
-                              exit="exit"
-                              variants={motionVariants.fadeUp(10)}
-                              transition={{ duration: 0.5, delay: 0.2 }}
-                            >
-                              {item.title.split(" ")[2]}
-                            </motion.span>
-                            <motion.span
-                              className="uppercase -right-8 relative"
-                              initial="initial"
-                              whileInView="animate"
-                              viewport={{ once: false, margin: "0px" }}
-                              key={index}
-                              exit="exit"
-                              variants={motionVariants.fadeRight(40)}
-                              transition={{ duration: 0.5, delay: 0.25 }}
-                            >
-                              {item.title.split(" ")[3]}
-                            </motion.span>
-                            <motion.span
-                              className="uppercase -right-10 relative"
-                              initial="initial"
-                              whileInView="animate"
-                              viewport={{ once: false, margin: "0px" }}
-                              key={index}
-                              exit="exit"
-                              variants={motionVariants.fadeRight(40)}
-                              transition={{ duration: 0.5, delay: 0.3 }}
-                            >
-                              {item.title.split(" ")[4]}
-                            </motion.span>
+                              TATTOO
+                            </motion.span> */}
                           </h1>
                         )}
 
@@ -389,3 +353,70 @@ const Hero = () => {
 };
 
 export default Hero;
+
+// {
+//   index === 0 && (
+//     <h1 className="text-white text-center relative font-extrabold flex flex-col items-center text-6xl xs:text-4xl md:text-[72px] leading-[95%] lg:leading-[90%]">
+//       <motion.span
+//         className="uppercase -left-10 relative"
+//         initial="initial"
+//         whileInView="animate"
+//         viewport={{ once: false, margin: "0px" }}
+//         key={index}
+//         exit="exit"
+//         variants={motionVariants.fadeLeft(40)}
+//         transition={{ duration: 0.5, delay: 0.1 }}
+//       >
+//         {item.title.split(" ")[0]}
+//       </motion.span>
+//       <motion.span
+//         className="uppercase -left-16 relative"
+//         initial="initial"
+//         whileInView="animate"
+//         viewport={{ once: false, margin: "0px" }}
+//         key={index}
+//         exit="exit"
+//         variants={motionVariants.fadeLeft(40)}
+//         transition={{ duration: 0.5, delay: 0.15 }}
+//       >
+//         {item.title.split(" ")[1]}
+//       </motion.span>
+//       <motion.span
+//         className="font-birthstone text-[64px] my-1 sm:text-[100px]"
+//         initial="initial"
+//         whileInView="animate"
+//         viewport={{ once: false, margin: "0px" }}
+//         key={index}
+//         exit="exit"
+//         variants={motionVariants.fadeUp(10)}
+//         transition={{ duration: 0.5, delay: 0.2 }}
+//       >
+//         {item.title.split(" ")[2]}
+//       </motion.span>
+//       <motion.span
+//         className="uppercase -right-8 relative"
+//         initial="initial"
+//         whileInView="animate"
+//         viewport={{ once: false, margin: "0px" }}
+//         key={index}
+//         exit="exit"
+//         variants={motionVariants.fadeRight(40)}
+//         transition={{ duration: 0.5, delay: 0.25 }}
+//       >
+//         {item.title.split(" ")[3]}
+//       </motion.span>
+//       <motion.span
+//         className="uppercase -right-10 relative"
+//         initial="initial"
+//         whileInView="animate"
+//         viewport={{ once: false, margin: "0px" }}
+//         key={index}
+//         exit="exit"
+//         variants={motionVariants.fadeRight(40)}
+//         transition={{ duration: 0.5, delay: 0.3 }}
+//       >
+//         {item.title.split(" ")[4]}
+//       </motion.span>
+//     </h1>
+//   );
+// }

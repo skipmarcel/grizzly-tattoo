@@ -27,13 +27,6 @@ const anton = Anton({
   display: "swap",
 });
 
-// const barlow = Barlow({
-//   weight: ["300", "400", "500", "600", "700", "800", "900"],
-//   subsets: ["latin"],
-//   variable: "--font-barlow",
-//   display: "swap",
-// });
-
 const crimsonText = Crimson_Text({
   weight: ["400", "600", "700"],
   subsets: ["latin"],
