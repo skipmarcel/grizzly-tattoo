@@ -268,7 +268,7 @@ const Hero = () => {
                               {item.title.split(" ")[2]}
                             </motion.span>
                             <motion.span
-                              className="uppercase -right-10 relative"
+                              className="uppercase -right-0 relative"
                               initial="initial"
                               whileInView="animate"
                               viewport={{ once: false, margin: "0px" }}
@@ -280,7 +280,7 @@ const Hero = () => {
                               {item.title.split(" ")[3]}
                             </motion.span>
                             <motion.span
-                              className="uppercase right-0 relative"
+                              className="uppercase right-20 relative"
                               initial="initial"
                               whileInView="animate"
                               viewport={{ once: false, margin: "0px" }}
