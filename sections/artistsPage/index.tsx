@@ -7,7 +7,7 @@ const ArtistsPage: any = async () => {
 
   return (
     <>
-      <PageHead title="Artists" imgSrc="/images/pagehead/image-7.jpeg" />
+      <PageHead title="Artists" imgSrc="/images/pagehead/shopfull2.jpg" />
       <Team {...{ artists }} />
     </>
   );

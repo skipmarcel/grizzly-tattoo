@@ -7,7 +7,7 @@ import ArtistGallery from "./ArtistGallery";
 const ArtistPage = ({ artist }: { artist: any }) => {
   return (
     <>
-      <PageHead title={artist.title} imgSrc="/images/pagehead/image-7.jpeg" />
+      <PageHead title={artist.title} imgSrc="/images/pagehead/shopfull2.jpg" />
       <ArtistDetails {...{ artist }} />
       <ArtistGallery {...{ artist }} />
       <Cta2

@@ -10,7 +10,7 @@ const ContactPage = () => {
         hasBreadCrumb
         title="Contact Us"
         pageName="Contact Us"
-        imgSrc="/images/pagehead/image-4.jpg"
+        imgSrc="/images/pagehead/grizzlytshirts.jpg"
       />
       <ContactInfo />
       <ContactFormSection />

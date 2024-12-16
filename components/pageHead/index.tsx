@@ -21,7 +21,7 @@ const PageHead = ({
   pageName,
   className,
   small,
-  imgSrc = "/images/pagehead/image-5.jpg",
+  imgSrc = "/images/pagehead/woodsign.jpg",
 }: PageHeadProps) => {
   return (
     <section id="hero" className="relative z-10 -mt-[112px] lg:-mt-[127px]">
