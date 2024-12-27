@@ -95,7 +95,7 @@ const Hero = () => {
           <Image
             imageClassName="object-contain"
             src="/images/hero/scroll.png"
-            className="!absolute left-1/2 -translate-x-1/2 bottom-4 lg:bottom-10 w-[21px] h-[43px] z-[10] select-none"
+            className="!absolute left-1/2 -translate-x-1/2 bottom-10 lg:bottom-10 w-[21px] h-[43px] z-[10] select-none"
             alt="Hero Scroll"
           />
         </Link>
@@ -341,7 +341,7 @@ const Hero = () => {
                             </Button>
                           </Link>
                         </motion.div>
-                        
+
                       </div>
                     </div>
                   </motion.div>
