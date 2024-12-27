@@ -32,7 +32,7 @@ const Hero = () => {
   const [index, setIndex] = useState(1);
   return (
     <div className="relative z-10 group -mt-[112px] lg:-mt-[127px]">
-      <div className="relative isolate overflow-hidden min-h-[700px] h-[calc(100vh)] flex flex-col">
+      <div className="relative isolate overflow-hidden min-h-[750px] h-[calc(100vh)] flex flex-col">
         {/* Arrow Right */}
         <div className="group/right z-10 overflow-hidden absolute top-1/2 lg:-translate-y-1/2 h-10 right-5 sm:right-5 flex items-center justify-center transition-all duration-300">
           <svg
@@ -95,7 +95,7 @@ const Hero = () => {
           <Image
             imageClassName="object-contain"
             src="/images/hero/scroll.png"
-            className="!absolute left-1/2 -translate-x-1/2 bottom-20 lg:bottom-10 w-[21px] h-[43px] z-[10] select-none"
+            className="!absolute left-1/2 -translate-x-1/2 bottom-24 lg:bottom-10 w-[21px] h-[43px] z-[10] select-none"
             alt="Hero Scroll"
           />
         </Link>
