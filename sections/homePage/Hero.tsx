@@ -303,12 +303,13 @@ const Hero = () => {
                           variants={motionVariants.fadeDown(40)}
                           transition={{ duration: 1, delay: 0.3 }}
                         >
-                          <Link href="/gallery">
+                          <Link href="/artists">
                             <Button className="min-w-[10rem]" variant="neutral">
-                              Gallery
+                              Artists
                             </Button>
                           </Link>
                         </motion.div>
+
                         <motion.div
                           className="mt-8 flex flex-wrap items-center gap-y-6 gap-x-2 sm:gap-x-4"
                           initial="initial"
@@ -324,6 +325,7 @@ const Hero = () => {
                             </Button>
                           </Link>
                         </motion.div>
+
                         <motion.div
                           className="mt-8 flex flex-wrap items-center gap-y-6 gap-x-2 sm:gap-x-4"
                           initial="initial"
@@ -333,12 +335,13 @@ const Hero = () => {
                           variants={motionVariants.fadeDown(40)}
                           transition={{ duration: 1, delay: 0.3 }}
                         >
-                          <Link href="/artists">
+                          <Link href="/gallery">
                             <Button className="min-w-[10rem]" variant="neutral">
-                              Artists
+                              Gallery
                             </Button>
                           </Link>
                         </motion.div>
+                        
                       </div>
                     </div>
                   </motion.div>
